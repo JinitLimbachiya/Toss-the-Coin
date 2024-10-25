@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(32, 32, 31);
+        }
+
+        #coin {
+            background-color: rgb(0, 0, 255);
+            height: 300px;
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 75px;
+            font-family: Arial;
+            border: 8px double rgb(0, 0, 0);
+        }
+
+        #tossBtn {
+            margin-top: 80px;
+            height: 50px;
+            width: 100px;
+            font-size: 22px;
+            border-radius: 10px;
+            border: 2px solid black;
+            font-family: Arial;
+        }
+
+        @keyframes flip {
+            0% { transform: rotateX(0deg) }
+            50% { transform: rotateX(360deg) }
+            100% { transform: rotateX(90deg) }
+        }
+
+        #coin.flip {
+            animation: flip 0.5s ease-in;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="coin">COIN</div>
+
+    <button id="tossBtn">TOSS</button>
+
+    <audio src="./Coin Flip Sound.mp3" id="coinFlipSound"></audio>
+
+    <script>
+        let tossBtn = document.getElementById('tossBtn')
+        let coinDiv = document.getElementById('coin')
+        let coinFlipSound = document.getElementById('coinFlipSound')
+
+        tossBtn.onclick = () => {
+            let choices = ["HEADS", "TAILS"]
+
+            coinFlipSound.play()
+
+            coinDiv.classList.add('flip')
+            
+            setTimeout(() => {
+                let randomChoiceIndex = Math.floor(Math.random() * choices.length)
+                coinDiv.innerText = choices[randomChoiceIndex]
+                coinDiv.classList.remove('flip')
+            }, 500)
+        }
+    </script>
+    
+</body>
+</html>
