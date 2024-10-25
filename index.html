@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Toss The Coin</title>
 
     <style>
         * {
@@ -31,7 +31,7 @@
             align-items: center;
             border-radius: 50%;
             font-size: 75px;
-            font-family: Arial;
+            font-family: Comic Sans MS;
             border: 8px double rgb(0, 0, 0);
         }
 
@@ -39,10 +39,10 @@
             margin-top: 80px;
             height: 50px;
             width: 100px;
-            font-size: 22px;
+            font-size: 25px;
             border-radius: 10px;
             border: 2px solid black;
-            font-family: Arial;
+            font-family: Helvetica;
         }
 
         @keyframes flip {
@@ -62,7 +62,7 @@
 
     <div id="coin">COIN</div>
 
-    <button id="tossBtn">TOSS</button>
+    <button id="tossBtn">Toss</button>
 
     <audio src="./Coin Flip Sound.mp3" id="coinFlipSound"></audio>
 
@@ -80,6 +80,7 @@
             
             setTimeout(() => {
                 let randomChoiceIndex = Math.floor(Math.random() * choices.length)
+                coinDiv.style.fontFamily = "Helvetica"
                 coinDiv.innerText = choices[randomChoiceIndex]
                 coinDiv.classList.remove('flip')
             }, 500)
